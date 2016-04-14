@@ -1,0 +1,78 @@
+﻿<Page
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="Paymetheus.WalletBinding"
+	x:Name="Page"
+	WindowTitle="Page"
+	FlowDirection="LeftToRight"
+	
+	Background="{DynamicResource ColorDarkBlueFull}" d:DesignWidth="842" d:DesignHeight="718">
+    <Page.Resources>
+        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
+        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
+        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true"/>
+                            <Trigger Property="IsKeyboardFocused" Value="true"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                        <Condition Property="IsSelectionActive" Value="false"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="532.452" Width="700" Grid.ColumnSpan="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="367*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="56*"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="59*"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="Images/paymetheus - 262x37.png" Stretch="Fill" Width="262" Height="37" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="219,24,219,0"/>
+            <Rectangle Fill="#FFF4F4F5" Margin="0,0,0,0.449" RadiusY="5" RadiusX="5" Height="55" VerticalAlignment="Bottom" Grid.Row="2"/>
+            <TextBlock TextWrapping="Wrap" Text="Certificate" VerticalAlignment="Top" Foreground="#FF132F4B" Margin="30,352.25,0,0" HorizontalAlignment="Left" Height="15.96" Width="53.51" Grid.RowSpan="2"/>
+            <Rectangle Fill="#FF69D5F7" Height="1" VerticalAlignment="Top" Width="340" HorizontalAlignment="Center" Margin="180,135,180,0"/>
+            <RadioButton Content="Recover from seed" HorizontalAlignment="Left" Margin="394.355,105.202,0,0" VerticalAlignment="Top" Style="{DynamicResource RadioButtonStyle}" GroupName="group" Height="12.75" Width="125.645"/>
+            <RadioButton Content="Create new wallet" HorizontalAlignment="Left" Margin="180,105.068,0,0" VerticalAlignment="Top" Style="{DynamicResource RadioButtonStyle}" GroupName="group" IsChecked="True" Height="12.75" Width="120.768"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,219.726,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"  Foreground="#FFB7D1F0" Height="95.76"><Run Text="Wallets are determinstically generated by a wallet seed. The seed is a master key to you wallet and entire wallet can be recreate any time using it. If the wallet encryption passphrase is forgottend or the wallet is destroyed, the seed can be used to recover the wallet."/><LineBreak/><Run Text="Write down the following seed and save it in a secure location."/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="0,336.29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"  Foreground="#FF69D5F7" Text="The next prompt will require entering this seed to confirm it has been saved." Grid.RowSpan="2" Height="31.92"/>
+            <TextBlock HorizontalAlignment="Left" Margin="360,219.726,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"  Foreground="#FFB7D1F0" Height="95.76"><Run Text="To help avoid permanent loss of your wallet, the seed must be backed up before continuing."/><LineBreak/><Run/><LineBreak/><Run Foreground="#FFFD714B" FontWeight="Bold" Text="Warning: "/><Run Text="Failure to keep this seed private can result in the theft of your entire wallet. Under no circunmstances should this seed ever be revealed to someone else."/></TextBlock>
+            <TextBlock Height="22.667" Margin="20,18,20,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="{DynamicResource ColorDarkBlueFull}" FontSize="16"><Run Text="as45a465a4asd"/><Run Text="0"/><Run Text="5a46df4a65sdf4a6s5d4fa65s4dfasdf456asdf"/><Run Text="5s4dfasdf4565sdf4a6s5d6"/><Run Text="opkqm"/></TextBlock>
+            <Button Content="CONTINUE" HorizontalAlignment="Center" Height="35.5" Margin="288.5,0" VerticalAlignment="Top" Width="123" Style="{DynamicResource ButtonBlue}" Foreground="#FF132F4B" Grid.Row="4"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,176.726,0,0" TextWrapping="Wrap" Text="Create a new wallet" VerticalAlignment="Top" FontSize="21.333" Foreground="White"/>
+        </Grid>
+    </Grid>
+</Page>
