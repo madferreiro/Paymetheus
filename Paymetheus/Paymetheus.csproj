@@ -161,14 +161,18 @@
     <Compile Include="CreateOrImportSeedView.xaml.cs">
       <DependentUpon>CreateOrImportSeedView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DaemonConnect\ConfirmSeedBackupDialog.cs" />
     <Compile Include="DaemonConnect\ConnectionWizardDialog.cs" />
     <Compile Include="DaemonConnect\ConsensusServerRpcConnectionDialog.cs" />
+    <Compile Include="DaemonConnect\CreateOrImportSeedDialog.cs" />
+    <Compile Include="DaemonConnect\PromptPassphrasesDialog.cs" />
+    <Compile Include="DaemonConnect\PromptPublicPassphraseDialog.cs" />
+    <Compile Include="DaemonConnect\StartupWizard.cs" />
     <Compile Include="Helpers\Navigator.cs" />
     <Compile Include="Helpers\Watermark.cs" />
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StartupWizard.cs" />
     <Compile Include="ConnectionWizardView.xaml.cs">
       <DependentUpon>ConnectionWizardView.xaml</DependentUpon>
     </Compile>

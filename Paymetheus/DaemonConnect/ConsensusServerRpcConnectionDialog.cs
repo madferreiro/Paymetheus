@@ -1,10 +1,12 @@
-﻿using Paymetheus.Decred;
-using System;
+﻿using System;
 using System.IO;
 using System.Windows;
+using Paymetheus.Rpc;
+using Paymetheus.Decred;
 
 namespace Paymetheus.DaemonConnect
 {
+
     public sealed class ConsensusServerRpcConnectionDialog : ConnectionWizardDialog
     {
         public ConsensusServerRpcConnectionDialog(StartupWizard wizard) : base(wizard)
@@ -93,4 +95,5 @@ namespace Paymetheus.DaemonConnect
             }
         }
     }
+
 }
