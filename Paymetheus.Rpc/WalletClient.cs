@@ -65,7 +65,7 @@ namespace Paymetheus.Rpc
             {
                 await channel.ConnectAsync(deadline);
             }
-            catch (TaskCanceledException)
+            catch (TaskCanceledException ex)
             {
                 await channel.ShutdownAsync();
                 throw new ConnectTimeoutException();

@@ -123,10 +123,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Interactive.Async, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Ix-Async.1.2.5\lib\net45\System.Interactive.Async.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -162,12 +165,17 @@
       <DependentUpon>CreateOrImportSeedView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DaemonConnect\ConfirmSeedBackupDialog.cs" />
+    <Compile Include="DaemonConnect\ConnectionContext.cs" />
+    <Compile Include="DaemonConnect\ConnectionWizard.cs" />
     <Compile Include="DaemonConnect\ConnectionWizardDialog.cs" />
     <Compile Include="DaemonConnect\ConsensusServerRpcConnectionDialog.cs" />
     <Compile Include="DaemonConnect\CreateOrImportSeedDialog.cs" />
     <Compile Include="DaemonConnect\PromptPassphrasesDialog.cs" />
     <Compile Include="DaemonConnect\PromptPublicPassphraseDialog.cs" />
     <Compile Include="DaemonConnect\StartupWizard.cs" />
+    <Compile Include="FramePage.xaml.cs">
+      <DependentUpon>FramePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Navigator.cs" />
     <Compile Include="Helpers\Watermark.cs" />
     <Compile Include="LoginPage.xaml.cs">
@@ -196,6 +204,9 @@
     </Compile>
     <Compile Include="ImportDialogViewModel.cs" />
     <Compile Include="LockableToggleButton.cs" />
+    <Compile Include="Overview.xaml.cs">
+      <DependentUpon>Overview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PassphraseDialogView.xaml.cs">
       <DependentUpon>PassphraseDialogView.xaml</DependentUpon>
     </Compile>
@@ -231,6 +242,9 @@
     </Compile>
     <Compile Include="ConsensusServerConnectionOptionsView.xaml.cs">
       <DependentUpon>ConsensusServerConnectionOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TransactionUserControl.xaml.cs">
+      <DependentUpon>TransactionUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModelMessage.cs" />
@@ -271,11 +285,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FramePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ImportDialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Overview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -330,6 +352,10 @@
     <Page Include="ConsensusServerConnectionOptionsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TransactionUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="WalletBinding.xaml">
       <SubType>Designer</SubType>
@@ -387,9 +413,17 @@
       <Name>Paymetheus.Rpc</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\paymetheus - 137x20.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\paymetheus - 262x37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pm - icons - decrease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pm - icons - increase.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\grpc.native.csharp.0.13.0\build\portable-net45+netcore45+wpa81+wp8\grpc.native.csharp.targets" Condition="Exists('..\packages\grpc.native.csharp.0.13.0\build\portable-net45+netcore45+wpa81+wp8\grpc.native.csharp.targets')" />

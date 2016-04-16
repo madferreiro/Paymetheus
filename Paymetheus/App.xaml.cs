@@ -39,7 +39,7 @@ namespace Paymetheus
                 Application.Current.Shutdown(1);
             };
 
-            Application.Current.Startup += Application_Startup;
+            //Application.Current.Startup += Application_Startup;
 
             Current = this;
         }
@@ -78,7 +78,7 @@ namespace Paymetheus
                     var rootCertificate = await rootCertificateTask;
                     walletClient = await WalletClient.ConnectAsync(listenAddress, rootCertificate);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     if (walletProcess.HasExited)
                     {

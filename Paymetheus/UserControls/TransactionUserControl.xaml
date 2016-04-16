@@ -1,0 +1,27 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="Paymetheus.TransactionUserControl"
+	x:Name="UserControl"
+	 d:DesignHeight="480" Height="24" d:DesignWidth="80.01">
+	<UserControl.Resources>
+		<SolidColorBrush x:Key="PendingColor" Color="#FF2B98F0"/>
+		<SolidColorBrush x:Key="InvalidColor" Color="#FFA9B4BF"/>
+		<SolidColorBrush x:Key="ConfirmedColor" Color="#FF2ED8A3"/>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="7"/>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="7"/>
+		</Grid.ColumnDefinitions>
+		<Rectangle x:Name="rectangle" Margin="0,0,0.5,0" RadiusX="2" Stroke="{DynamicResource ConfirmedColor}" RadiusY="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+		<TextBlock x:Name="lblText" Height="16.5" Margin="2.583,2.5,0,0" TextWrapping="Wrap" Text="... Pending" VerticalAlignment="Top" Foreground="#FF2B98F0" TextAlignment="Center" Grid.Column="2"/>
+		<Path Data="M3.9761906,6.8327664 C3.9761906,6.8327664 5.3333333,7.1663332 6,9.1663332 6.03125,9.0618448 7.0125627,6.0794637 9.3441558,4.749522" HorizontalAlignment="Left" Height="8.852" Margin="-2,5.148,0,0" Stretch="Fill" Stroke="{DynamicResource ConfirmedColor}" VerticalAlignment="Top" Width="14.542" StrokeThickness="2" Name="confirmedSignal" Grid.Column="2"/>
+	</Grid>
+</UserControl>

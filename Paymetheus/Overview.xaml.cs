@@ -1,6 +1,4 @@
-﻿using Paymetheus.DaemonConnect;
-using Paymetheus.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,22 +16,13 @@ using System.Windows.Shapes;
 namespace Paymetheus
 {
     /// <summary>
-    /// Interaction logic for WalletBinding.xaml
+    /// Interaction logic for Overview.xaml
     /// </summary>
-    public partial class WalletBinding : Page
+    public partial class Overview : Page
     {
-        private ConnectionWizard _connectionWizard { get; set; }
-
-        public WalletBinding()
+        public Overview()
         {
             InitializeComponent();
-            _connectionWizard = new ConnectionWizard();
-        }
-
-
-        private void ContinueClick(object sender, RoutedEventArgs e)
-        {
-            Navigator.Instance.NavigateTo(new FramePage());
         }
     }
 }
